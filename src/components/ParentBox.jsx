@@ -23,7 +23,7 @@ var ParentBox = React.createClass({
     console.log('componentWillMount')
   },
 
-  componentDidMount: function() {
+  componentDidMount: function(node) {
     console.log('componentDidMount')
     //setTimeout(this.loadCommentsFromServer, this.props.pollInterval);
   },
@@ -50,6 +50,7 @@ var ParentBox = React.createClass({
   },
 
   render: function() {
+    console.log('>>render Parent')
     return (
       <div className="commentBox">
         <h1>Parent Comments</h1>
