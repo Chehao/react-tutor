@@ -22,7 +22,12 @@ const Children = React.createClass({
   render() {
     console.log('>>render Children')
     return (
-      <div>children : {this.props.data}</div>
+      <div>
+      children : 
+        <lu>
+        {this.props.data.map( (item, index)=> { return <li key={index}>{item}</li>})}
+        </lu>
+      </div>
     );
   }
 });

@@ -4,12 +4,12 @@ import Children from 'components/Children'
 var ParentBox = React.createClass({
          
   loadCommentsFromServer: function() {
-    this.setState({data: 'update data'})
+    this.setState({data: [...this.state.data, 'hello world ']})
   },
 
   getInitialState: function() {
     console.log('getInitialState')
-    return {data: ''};
+    return {data: []};
   },
 
   getDefaultProps: function() {
@@ -55,7 +55,7 @@ var ParentBox = React.createClass({
       <div className="commentBox">
         <h1>Parent Comments</h1>
         <button type="button" onClick={()=>{this.loadCommentsFromServer()}} >click</button>
-        <button type="button" onClick={()=>{this.setState({data: ''})}} >clear</button>
+        <button type="button" onClick={()=>{this.setState({data: []})}} >clear</button>
         <hr/>
         <Children data={this.state.data} />
       </div>
