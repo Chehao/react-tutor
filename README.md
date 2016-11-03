@@ -1,2 +1,2 @@
 # react-tutor
-simple react
+simple react lifecycle test
