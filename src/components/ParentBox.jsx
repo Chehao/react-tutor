@@ -46,7 +46,7 @@ var ParentBox = React.createClass({
   },
 
   loadCommentsFromServer: function() {
-    this.setState({data: [...this.state.data, {`hello world- ${this.state.data.length}`}]})
+    this.setState({data: [...this.state.data, `hello world- ${this.state.data.length}`]})
   },
 
   remove: function(value) {
