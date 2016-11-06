@@ -21,7 +21,7 @@ var ParentBox = React.createClass({
 
   componentDidMount: function(node) {
     console.log('componentDidMount')
-    //setTimeout(this.loadCommentsFromServer, this.props.pollInterval);
+    //setTimeout(this.addData, this.props.pollInterval);
   },
   
   componentWillReceiveProps: function(){
@@ -45,7 +45,7 @@ var ParentBox = React.createClass({
     console.log('componentWillUnmount')
   },
 
-  loadCommentsFromServer: function() {
+  addData: function() {
     this.setState({data: [...this.state.data, `hello world- ${this.state.data.length}`]})
   },
 
@@ -60,7 +60,7 @@ var ParentBox = React.createClass({
       <div className="commentBox">
 
         <h1>{this.props.title}</h1>
-        <button type="button" onClick={this.loadCommentsFromServer} >click</button>
+        <button type="button" onClick={this.addData} >click</button>
         <button type="button" onClick={()=>{this.setState({data: []})}} >clear</button>
         <hr/>
         <Children data={this.state.data} onRemove={this.remove} />
