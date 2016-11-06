@@ -2,10 +2,6 @@ import React, { Component } from 'react'
 import Children from 'components/Children'
 
 var ParentBox = React.createClass({
-         
-  loadCommentsFromServer: function() {
-    this.setState({data: [...this.state.data, 'hello world ']})
-  },
 
   getInitialState: function() {
     console.log('getInitialState')
@@ -49,15 +45,25 @@ var ParentBox = React.createClass({
     console.log('componentWillUnmount')
   },
 
+  loadCommentsFromServer: function() {
+    this.setState({data: [...this.state.data, `hello world- ${this.state.data.length}`]})
+  },
+
+  remove: function(value) {
+    let data = this.state.data.filter( (item) => { return item !== value} )
+    this.setState({data: data})
+  },
+
   render: function() {
     console.log('>>render Parent')
     return (
       <div className="commentBox">
+
         <h1>Parent Comments</h1>
         <button type="button" onClick={this.loadCommentsFromServer} >click</button>
         <button type="button" onClick={()=>{this.setState({data: []})}} >clear</button>
         <hr/>
-        <Children data={this.state.data} />
+        <Children data={this.state.data} onRemove={this.remove} />
       </div>
     );
   }

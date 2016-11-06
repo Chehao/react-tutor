@@ -23,10 +23,14 @@ const Children = React.createClass({
     console.log('>>render Children')
     return (
       <div>
-      children : 
-        <lu>
-        {this.props.data.map( (item, index)=> { return <li key={index}>{item}</li>})}
-        </lu>
+      Child Component  : 
+        <ul>
+        {
+          this.props.data.map( (item, index)=> {
+           return <li key={index}>{item} <button type="button" onClick={()=>{this.props.onRemove(item)}} >x</button></li>
+          })
+        }
+        </ul>
       </div>
     );
   }
