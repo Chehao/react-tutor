@@ -59,7 +59,7 @@ var ParentBox = React.createClass({
     return (
       <div className="commentBox">
 
-        <h1>Parent Comments</h1>
+        <h1>Parent Component</h1>
         <button type="button" onClick={this.loadCommentsFromServer} >click</button>
         <button type="button" onClick={()=>{this.setState({data: []})}} >clear</button>
         <hr/>
